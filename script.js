@@ -9,7 +9,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const taskText = taskInput.value.trim(); // Get task text and remove whitespace
 
+        var button = document.createElement('button');
+        button.textContent = 'Edit';
+        button.setAttribute("id", "editButton");
+
         if (taskText !== "") {
+
+            button.addEventListener('click', Edit);
+
             // Create new task item
             const taskItem = document.createElement("li");
             taskItem.textContent = taskText;
@@ -26,6 +33,8 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             // Append task item to task list
+            button.style.float = "right";
+            taskItem.appendChild(button);
             taskList.appendChild(taskItem);
 
             // Clear input field
@@ -76,3 +85,27 @@ function Refresh(){
     searchedList.innerHTML = "";
     taskList.style.display = "block";
 };
+
+function Edit() {
+    // Get the list item being edited
+    var button = document.createElement('button');
+        button.textContent = 'Edit';
+        button.setAttribute("id", "editButton");
+
+        button.addEventListener('click', Edit);
+
+    const listItem = this.parentNode;
+  
+    // Get the current text content of the list item
+    const currentText = listItem.textContent;
+  
+    // Prompt the user to enter new text
+    const newText = prompt("Enter new text:", currentText.slice(0, currentText.length - 4));
+  
+    // Update the text content if the user entered new text
+    if (newText !== null && newText.trim() !== "") {
+      listItem.textContent = newText.trim();
+      button.style.float = "right";
+      listItem.appendChild(button);
+    }
+}
