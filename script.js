@@ -33,3 +33,46 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const searchTask = document.getElementById("searchTask");
+    const searchInput = document.getElementById("searchInput");
+    const taskList = document.getElementById("taskList");
+    const searchedList = document.getElementById("searchedList");
+    
+    searchTask.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const searchText = searchInput.value.trim().toLowerCase();
+
+        // Clear the search results before performing a new search
+        searchedList.innerHTML = "";
+
+        if (searchText !== "") {
+            // Loop through the task list
+            for (let i = 0; i < taskList.children.length; i++) {
+                const listItem = taskList.children[i];
+                const itemName = listItem.textContent.toLowerCase();
+                
+                // Check if the item name contains the search term
+                if (itemName.includes(searchText)) {
+                    // Clone the matching list item and append it to the searched list
+                    const clonedItem = listItem.cloneNode(true);
+                    searchedList.appendChild(clonedItem);
+                    taskList.style.display = "none";
+                }
+            }
+
+            // Clear input field
+            searchInput.value = "";
+        }
+    });
+});
+
+function Refresh(){
+    const taskList = document.getElementById("taskList");
+    const searchedList = document.getElementById("searchedList");
+
+    searchedList.innerHTML = "";
+    taskList.style.display = "block";
+};
