@@ -16,15 +16,10 @@
         <h1>To-Do-List Application</h1>
         <hr id="bottomLine">
         <div class="container">
-            <form action="includes/signup.inc.php" method="post">
-                <input type="text" name="nameInput" placeholder="Name">
-                <br>
-                <input type="email" name="emailInput" placeholder="Email">
-                <br>
-                <input type="text" name="userInput" placeholder="Username">
-                <br>
-                <input type="text" name="passInput" placeholder="Password">
-                <br>
+            <form action="includes/signup.inc.php" method="post">    
+                <?php
+                    signup_inputs();
+                ?>
                 <button>Signup</button>
             </form>
         </div>
