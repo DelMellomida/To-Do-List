@@ -1,0 +1,30 @@
+h1 {
+    font-size: 100px;
+    text-align: center;
+}
+
+#bottomLine {
+    border: none;
+    height: 5px;
+    color: #000000;
+    background-color: #000000;
+    margin-bottom: 100px;
+}
+
+hr {
+    border: none;
+    height: 5px;
+    color: #000000;
+    background-color: #000000;
+}
+
+.container {
+    width: 500px;
+    height: 250px;
+    margin: auto;
+    outline: solid 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
