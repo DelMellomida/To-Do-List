@@ -1,3 +1,8 @@
+<?php
+    require_once 'includes/config_session.inc.php';
+    require_once 'includes/login_view.inc.php';
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,6 +12,9 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
+        <?php
+            go_to_web_app();
+        ?>
         <hr>
         <h1>To-Do-List Application</h1>
         <hr id="bottomLine">
@@ -16,10 +24,13 @@
                 <br>
                 <input type="password" name="passInput" placeholder="Password">
                 <br>
-                <button type="submit">Login</button>
+                <button>Login</button>
                 <input type="button" value="Sign Up" onclick="window.location.href='signup.php';">
             </form>
         </div>
+        <?php
+            check_login_errors();
+        ?>
         <script src="scripts/script.js"></script>
     </body>
 </html>
