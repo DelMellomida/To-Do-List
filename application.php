@@ -1,16 +1,29 @@
+<?php
+    require_once 'includes/config_session.inc.php';
+    require_once 'includes/app.inc.php';
+    require_once 'includes/app_view.inc.php';
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>To-Do List</title>
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/appStyles.css">
     </head>
     <body>
         <br>
         <h1>To-Do-List Application</h1>
         <hr>
-        <p>User: Jhondel Mellomida</p>
+        <?php
+            print_user();
+        ?>
+        <div class="form-container logout">
+                <form id="logout" action="includes/logout.inc.php" method="post">
+                    <button>Logout</button>
+                </form>
+            </div>
         <div class="container">
             <div class="form-container">
                 <form id="taskForm">
@@ -18,7 +31,7 @@
                     <button type="submit">Add</button>
                 </form>
             </div>
-            <input id="searchButton" type="button" value="Refresh" onclick="Refresh();" />
+            <input id="refreshButton" type="button" value="Refresh" onclick="Refresh();" />
             <div class="form-container searchTask">
                 <form id="searchTask">
                     <input type:"text" id="searchInput" placeholder="Search task...">
